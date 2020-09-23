@@ -1,0 +1,31 @@
+{
+    // General VSCode stuff to get out of the way
+    // Don't let Microsoft creep on your usage
+    "telemetry.enableTelemetry": false,
+    // Don't open the VSCode Welcome page on startup
+    "workbench.startupEditor": "newUntitledFile",
+    // I find that it's a little too easy to accidentally drag
+    // code blocks around with my mouse, so I turn this off
+    "editor.dragAndDrop": false,
+    // Appearance - Overall
+    // Font & Text
+    "editor.renderWhitespace": "all",
+    "editor.fontSize": 14,
+    // Add your preferred font (mine is Hack) to the front of default font list
+    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+    // Theme
+    "workbench.colorTheme": "Monokai",
+    // Ignore files we don't care about seeing in our filetree side bar
+    "files.exclude": {
+        "**/.idea": true,
+        "**/.vscode": true
+    },
+    // Appearance - Editor & Terminal
+    // Turn off code preview pane to leave more room in the editor window
+    "editor.minimap.enabled": false,
+    // General Coding Editing Settings
+    // Autosave files after some number of milliseconds
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 750,
+    "editor.formatOnSave": true,
+}
