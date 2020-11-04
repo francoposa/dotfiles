@@ -10,15 +10,15 @@
     // Appearance - Overall
     // Font & Text
     "editor.renderWhitespace": "all",
-    "editor.fontSize": 14,
+    "editor.fontSize": 15,
     // Add your preferred font (mine is Hack) to the front of default font list
     "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
     // Theme
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Monokai Dimmed",
     // Ignore files we don't care about seeing in our filetree side bar
     "files.exclude": {
         "**/.idea": true,
-        "**/.vscode": true
+        // "**/.vscode": true
     },
     // Appearance - Editor & Terminal
     // Turn off code preview pane to leave more room in the editor window
@@ -28,4 +28,6 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 750,
     "editor.formatOnSave": true,
+    "go.inferGopath": true,
+    "go.useLanguageServer": true,
 }
