@@ -10,16 +10,16 @@ autoload -Uz compinit && compinit -u
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# PYENV & PYENV-VIRTUALENV
+# PYENV
 export PYENV_VERSION=3.8.6
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  # eval "$(pyenv virtualenv-init -)" # PYENV-VIRTUALENV - not using currently, in favor of pyenv-virtualenvwrapper
 fi  # adds ~/.pyenv/shims to the beginning of PATH
 
-# # PYENV-VIRTUALENVWRAPPER - not using currently, in favor of pyenv-virtualenv
+# # PYENV-VIRTUALENVWRAPPER
 # # Initalize virtualenvwrapper so commands are available
-# pyenv virtualenvwrapper
+pyenv virtualenvwrapper
 # # This is the default, but prefer explicit over implicit
 # export WORKON_HOME=$HOME/.virtualenvs
 
