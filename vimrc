@@ -31,6 +31,7 @@ command! -nargs=1 Vres :vertical resize <args>
 set splitbelow
 set splitright
 
+let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Specify a directory for plugins
@@ -39,6 +40,8 @@ call plug#begin('~/.vim/vim-plug')
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 
 Plug 'sheerun/vim-polyglot'
+
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Initialize plugin system
 call plug#end()
