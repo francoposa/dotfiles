@@ -70,6 +70,8 @@ let g:rustfmt_autosave = 1
 " Specify a directory for plugins
 call plug#begin('~/.vim/vim-plug')
 
+Plug '907th/vim-auto-save'
+
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 
 Plug 'sheerun/vim-polyglot'
