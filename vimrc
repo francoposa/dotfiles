@@ -56,7 +56,14 @@ let g:ycm_language_server =
 \ ]
 
 " YCM keybindings
+
+" https://vi.stackexchange.com/questions/13674/make-youcompleteme-open-definition-in-vertical-split-even-if-buffer-is-not-saved
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" Open definition in new vertical split
+map <leader>ds :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
+" Open definition in new tab
+map <leader>dt :tab split<CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
+
 
 let g:rustfmt_autosave = 1
 
