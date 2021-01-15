@@ -21,11 +21,15 @@ set cursorline
 
 syntax on
 set background=dark
-colorscheme monokai
+
+" not using solarized currently, but this makes it work in iTerm2
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 
-let python_highlight_all = 1
+" gruvbox
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_invert_selection = 0
+colorscheme gruvbox
 
 au BufRead,BufNewFile  match BadWhitespace /\s\+$/
 
@@ -71,7 +75,14 @@ map <leader>ds :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
 " Open definition in new tab
 map <leader>dt :tab split<CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
 
+"
+" PyMode
+" Currently using only for the linters - the debugging is broken
 
+
+"
+" Rust-Vim
+"
 let g:rustfmt_autosave = 1
 
 
@@ -83,6 +94,8 @@ let g:rustfmt_autosave = 1
 call plug#begin('~/.vim/vim-plug')
 
 Plug '907th/vim-auto-save'
+
+Plug 'morhetz/gruvbox'
 
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 
