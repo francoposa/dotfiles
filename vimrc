@@ -10,8 +10,10 @@ set wildmenu " https://dougblack.io/words/a-good-vimrc.html
 "
 set backspace=indent,eol,start  " https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
 set ts=4 sw=4 expandtab smarttab " https://vi.stackexchange.com/questions/4244/what-is-softtabstop-used-for
-filetype indent on
+set updatetime=1000
+set completeopt=menuone
 
+filetype indent on
 
 "
 " syntax and view stuff
@@ -100,6 +102,8 @@ Plug 'morhetz/gruvbox'
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 
 Plug 'sheerun/vim-polyglot'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
