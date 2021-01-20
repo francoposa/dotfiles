@@ -77,10 +77,18 @@ map <leader>ds :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
 " Open definition in new tab
 map <leader>dt :tab split<CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
 
+map <leader>u  :YcmCompleter GoToReferences<CR>
+" Open references in new vertical split
+map <leader>us :vsp <CR>:exec("YcmCompleter GoToReferences")<CR>
+" Open references  in new tab
+map <leader>ut :tab split<CR>:exec("YcmCompleter GoToReferences")<CR>
+
+
+
 "
 " PyMode
 " Currently using only for the linters - the debugging is broken
-
+autocmd BufWritePost *.py PymodeLint
 
 "
 " Rust-Vim
