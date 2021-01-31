@@ -127,6 +127,8 @@ Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 
 Plug 'sheerun/vim-polyglot'
 
+Plug 'preservim/nerdcommenter'
+
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
