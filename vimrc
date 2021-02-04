@@ -99,12 +99,29 @@ map <leader>us :vsp <CR>:exec("YcmCompleter GoToReferences")<CR>
 " Open references  in new tab
 map <leader>ut :tab split<CR>:exec("YcmCompleter GoToReferences")<CR>
 
+"
+" Syntastic
+"
+" Recommended settings from README
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0 " Different from suggestion - very slow on open
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_checkers = ['mypy']
+
 
 
 "
 " PyMode
-" Currently using only for the linters - the debugging is broken
-autocmd BufWritePost *.py PymodeLint
+" Was using only for the linters - the debugging is broken
+" Now not using at all, since it doesn't support MyPy. Switched to Syntastic
+"let g:pymode_virtualenv_path = $VIRTUAL_ENV
+"autocmd BufWritePost *.py PymodeLint
 
 "
 " Rust-Vim
@@ -131,7 +148,9 @@ Plug 'preservim/nerdcommenter'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'vim-syntastic/syntastic'
+
+"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 Plug 'rust-lang/rust.vim'
 
