@@ -6,6 +6,9 @@ export PS1="[%20<...<%~%<<] "
 # ZSH AUTOCOMPLETE
 autoload -Uz compinit && compinit -u
 
+# NVIM ALIAS
+alias nv=nvim
+
 # ZSH HISTORY
 # https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh
 HISTFILE="$HOME/.zsh_history"
