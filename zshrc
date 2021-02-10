@@ -1,6 +1,7 @@
 # Show current directory in command prompt, truncating where it can
 # https://stackoverflow.com/questions/25090295/how-to-you-configure-the-command-prompt-in-linux-to-show-current-directory
-export PS1="[%~]%% "
+# export PS1="[%~]%% "
+export PS1="[%20<...<%~%<<] "
 
 # ZSH AUTOCOMPLETE
 autoload -Uz compinit && compinit -u
