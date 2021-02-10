@@ -140,6 +140,8 @@ Plug '907th/vim-auto-save'
 
 Plug 'morhetz/gruvbox'
 
+Plug 'tomasiser/vim-code-dark'
+
 Plug 'Raimondi/delimitMate'
 
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
