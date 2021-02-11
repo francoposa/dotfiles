@@ -112,7 +112,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0 " Different from suggestion - very slow on open
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_python_checkers = ['mypy']
+let g:syntastic_python_checkers = ['mypy', 'pylint']
 
 
 
