@@ -2,6 +2,15 @@
 " file & directory navigation
 "
 
+" netrw
+" https://stackoverflow.com/questions/14665170/netrw-open-files-into-tabs-in-opposite-vertical-window
+" tree listing by default
+let g:netrw_liststyle=3
+" remap shift-enter to fire up the sidebar
+nnoremap <silent> <S-CR> :leftabove 40vs<CR>:e .<CR>
+" the same remap as above - may be necessary in some distros
+nnoremap <silent> <C-M> :leftabove 40vs<CR>:e .<CR>
+
 " visual autocomplete for command menu
 set wildmenu " https://dougblack.io/words/a-good-vimrc.html
 
