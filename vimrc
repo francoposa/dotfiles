@@ -139,10 +139,14 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+
+" https://vi.stackexchange.com/questions/13674/make-youcompleteme-open-definition-in-vertical-split-even-if-buffer-is-not-saved
+map <leader>d <Plug>(coc-definition)
+map <leader>dt :tab split<CR>:<C-u>call CocActionAsync('jumpDefinition')<CR>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -182,18 +186,18 @@ let g:ycm_language_server =
 
 " YCM keybindings
 
-" https://vi.stackexchange.com/questions/13674/make-youcompleteme-open-definition-in-vertical-split-even-if-buffer-is-not-saved
-map <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" Open definition in new vertical split
-map <leader>ds :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
-" Open definition in new tab
-map <leader>dt :tab split<CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
+"" https://vi.stackexchange.com/questions/13674/make-youcompleteme-open-definition-in-vertical-split-even-if-buffer-is-not-saved
+"map <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"" Open definition in new vertical split
+"map <leader>ds :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
+"" Open definition in new tab
+"map <leader>dt :tab split<CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
 
-map <leader>u  :YcmCompleter GoToReferences<CR>
-" Open references in new vertical split
-map <leader>us :vsp <CR>:exec("YcmCompleter GoToReferences")<CR>
-" Open references  in new tab
-map <leader>ut :tab split<CR>:exec("YcmCompleter GoToReferences")<CR>
+"map <leader>u  :YcmCompleter GoToReferences<CR>
+"" Open references in new vertical split
+"map <leader>us :vsp <CR>:exec("YcmCompleter GoToReferences")<CR>
+"" Open references  in new tab
+"map <leader>ut :tab split<CR>:exec("YcmCompleter GoToReferences")<CR>
 
 "
 " Syntastic
