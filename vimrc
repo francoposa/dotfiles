@@ -24,7 +24,7 @@ set ts=4 sw=4 expandtab smarttab " https://vi.stackexchange.com/questions/4244/w
 set updatetime=1000
 set completeopt=menuone
 
-filetype indent on
+filetype plugin indent on
 
 " copy and paste
 vmap <C-c> "+y
@@ -51,9 +51,6 @@ let g:gruvbox_invert_selection = 0
 colorscheme gruvbox
 
 au BufRead,BufNewFile  match BadWhitespace /\s\+$/
-au BufRead,BufNewFile *.gohtml set filetype=html
-au BufRead,BufNewFile *.gohtml set syntax=html
-
 
 "
 " split settings, management & navigation
@@ -184,15 +181,15 @@ nmap <leader>rn <Plug>(coc-rename)
 "
 
 " YCM settings
-let g:ycm_language_server =
-\ [
-\   {
-\     'name': 'rust',
-\     'cmdline': ['rust-analyzer'],
-\     'filetypes': ['rust'],
-\     'project_root_files': ['Cargo.toml']
-\   }
-\ ]
+"let g:ycm_language_server =
+"\ [
+"\   {
+"\     'name': 'rust',
+"\     'cmdline': ['rust-analyzer'],
+"\     'filetypes': ['rust'],
+"\     'project_root_files': ['Cargo.toml']
+"\   }
+"\ ]
 
 " YCM keybindings
 
@@ -232,6 +229,21 @@ let g:ycm_language_server =
 " Now not using at all, since it doesn't support MyPy. Switched to Syntastic
 "let g:pymode_virtualenv_path = $VIRTUAL_ENV
 "autocmd BufWritePost *.py PymodeLint
+
+"
+" Vim-Go
+"
+au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl
+au BufRead,BufNewFile *.gohtml set syntax=gohtmltmpl
+
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
 
 "
 " Rust-Vim
