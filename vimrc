@@ -51,6 +51,8 @@ let g:gruvbox_invert_selection = 0
 colorscheme gruvbox
 
 au BufRead,BufNewFile  match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.gohtml set filetype=html
+au BufRead,BufNewFile *.gohtml set syntax=html
 
 
 "
