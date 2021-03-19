@@ -154,6 +154,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " https://vi.stackexchange.com/questions/13674/make-youcompleteme-open-definition-in-vertical-split-even-if-buffer-is-not-saved
 map <leader>d <Plug>(coc-definition)
 map <leader>dt :tab split<CR>:<C-u>call CocActionAsync('jumpDefinition')<CR>
+map <leader>du <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
