@@ -1,3 +1,6 @@
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
 "
 " file & directory navigation
 "
@@ -8,10 +11,8 @@ let g:netrw_list_hide= '.*__pycache__\/,.*\.pyc,.*\.mypy_cache\/,.*\.pytest_cach
 " https://stackoverflow.com/questions/14665170/netrw-open-files-into-tabs-in-opposite-vertical-window
 " tree listing by default
 let g:netrw_liststyle=3
-" remap shift-enter to fire up the sidebar
-nnoremap <silent> <S-CR> :leftabove 40vs<CR>:e .<CR>
-" the same remap as above - may be necessary in some distros
-nnoremap <silent> <C-M> :leftabove 40vs<CR>:e .<CR>
+" remap leader-enter to fire up the sidebar
+nnoremap <silent> <leader><CR> :leftabove 40vs<CR>:e .<CR>
 
 " visual autocomplete for command menu
 set wildmenu " https://dougblack.io/words/a-good-vimrc.html
@@ -39,6 +40,8 @@ set number
 set cursorline
 
 syntax on
+au BufRead,BufNewFile  match BadWhitespace /\s\+$/
+
 set background=dark
 
 " not using solarized currently, but this makes it work in iTerm2
@@ -49,8 +52,6 @@ let g:solarized_termtrans=1
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_invert_selection = 0
 colorscheme gruvbox
-
-au BufRead,BufNewFile  match BadWhitespace /\s\+$/
 
 "
 " split settings, management & navigation
@@ -266,6 +267,8 @@ Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
 
 Plug 'Raimondi/delimitMate'
+
+Plug 'airblade/vim-gitgutter'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
