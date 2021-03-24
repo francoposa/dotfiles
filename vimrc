@@ -20,6 +20,8 @@ set wildmenu " https://dougblack.io/words/a-good-vimrc.html
 "
 " text input stuff
 "
+setlocal spell
+
 set backspace=indent,eol,start  " https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
 set ts=4 sw=4 expandtab smarttab " https://vi.stackexchange.com/questions/4244/what-is-softtabstop-used-for
 set updatetime=1000
@@ -174,8 +176,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
+nmap <leader>rr <Plug>(coc-rename)
 
 
 "
