@@ -7,7 +7,7 @@ let mapleader = " "
 
 " netrw
 " https://stackoverflow.com/questions/4170887/vimrc-setting-to-ignore-file-types-in-netrw
-let g:netrw_list_hide= '.*__pycache__\/,.*\.pyc,.*\.mypy_cache\/,.*\.pytest_cache\/'
+let g:netrw_list_hide= '.*\.DS_Store,.*\.idea\/,.*\.mypy_cache\/,.*__pycache__\/,.*\.pyc,.*\.pytest_cache\/,.*\.vscode\/
 " https://stackoverflow.com/questions/14665170/netrw-open-files-into-tabs-in-opposite-vertical-window
 " tree listing by default
 let g:netrw_liststyle=3
