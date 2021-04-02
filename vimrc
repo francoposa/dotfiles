@@ -1,5 +1,5 @@
-nnoremap <SPACE> <Nop>
-let mapleader = " "
+"nnoremap <SPACE> <Nop>
+let mapleader = ","
 
 "
 " file & directory navigation
