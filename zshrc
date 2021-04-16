@@ -3,6 +3,14 @@
 # export PS1="[%~]%% "
 export PS1="[%20<...<%~%<<] "
 
+# Enable Option-Arrow Word jumping
+# iterm
+bindkey "\e\e[D" backward-word # ⌥←
+bindkey "\e\e[C" forward-word # ⌥→
+# kitty
+bindkey "\e[1;3D" backward-word # ⌥←
+bindkey "\e[1;3C" forward-word # ⌥→
+
 # ZSH AUTOCOMPLETE
 autoload -Uz compinit && compinit -u
 
@@ -27,6 +35,9 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+
+# RIPGREP
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # NVM & NPM - commented out when not in use as this initialization step is slow on my poor little Macbook Air
 # export NVM_DIR="$HOME/.nvm"
