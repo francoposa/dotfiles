@@ -105,6 +105,12 @@ noremap <leader>0 :tablast<cr>
 " COC settings
 "
 
+hi CocUnderline cterm=underline gui=underline
+hi CocErrorHighlight cterm=underline gui=underline
+hi CocWarningHighlight cterm=underline gui=underline
+hi CocInfoHighlight cterm=underline gui=underline
+hi CocHintHighlight cterm=underline gui=underline
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
