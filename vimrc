@@ -20,7 +20,7 @@ set wildmenu " https://dougblack.io/words/a-good-vimrc.html
 "
 " text input stuff
 "
-setlocal spell
+set spell
 
 set backspace=indent,eol,start  " https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
 set ts=4 sw=4 expandtab smarttab " https://vi.stackexchange.com/questions/4244/what-is-softtabstop-used-for
@@ -53,6 +53,7 @@ let g:solarized_termtrans=1
 " gruvbox
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_invert_selection = 0
+
 colorscheme gruvbox
 
 "
@@ -261,7 +262,7 @@ let g:rustfmt_autosave = 1
 " Specify a directory for plugins
 call plug#begin('~/.vim/vim-plug')
 
-Plug '907th/vim-auto-save'
+Plug 'preservim/nerdtree'
 
 Plug 'morhetz/gruvbox'
 
