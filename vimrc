@@ -254,6 +254,12 @@ nmap <leader>rr <Plug>(coc-rename)
 "autocmd BufWritePost *.py PymodeLint
 
 "
+" Vim-Markdown
+"
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+
+"
 " Vim-Go
 "
 au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl
@@ -298,6 +304,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 
 Plug 'preservim/nerdcommenter'
+
+Plug 'plasticboy/vim-markdown'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
