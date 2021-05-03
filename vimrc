@@ -292,6 +292,8 @@ call plug#begin('~/.vim/vim-plug')
 
 Plug 'preservim/nerdtree'
 
+Plug 'inkarkat/vim-ReplaceWithRegister'
+
 Plug 'morhetz/gruvbox'
 
 Plug 'tomasiser/vim-code-dark'
