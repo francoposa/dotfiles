@@ -27,6 +27,9 @@ autocmd BufWinEnter * silent NERDTreeMirror
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
 nnoremap <silent> <leader><CR> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 
+" https://stackoverflow.com/questions/8793489/nerdtree-reload-new-files
+autocmd BufEnter NERD_tree_* | execute 'normal R'
+
 " visual autocomplete for command menu
 set wildmenu " https://dougblack.io/words/a-good-vimrc.html
 
