@@ -263,6 +263,12 @@ nmap <leader>rr <Plug>(coc-rename)
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 
+
+"
+" Vim Markdown Preview
+"
+let vim_markdown_preview_github = 1
+
 "
 " Vim-Go
 "
@@ -312,6 +318,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdcommenter'
 
 Plug 'plasticboy/vim-markdown'
+
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
