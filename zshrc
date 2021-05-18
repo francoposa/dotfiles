@@ -14,6 +14,9 @@ bindkey "\e\e[C" forward-word # ⌥→
 bindkey "\e[1;3D" backward-word # ⌥←
 bindkey "\e[1;3C" forward-word # ⌥→
 
+# https://stackoverflow.com/questions/444951/zsh-stop-backward-kill-word-on-directory-delimiter
+WORDCHARS=
+
 # ZSH AUTOCOMPLETE
 autoload -Uz compinit && compinit -u
 
