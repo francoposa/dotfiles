@@ -47,10 +47,7 @@ set completeopt=menuone
 filetype plugin indent on
 
 " copy and paste
-vmap <C-c> "+y
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
+set clipboard=unnamed " https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
 
 "
 " syntax and view stuff
