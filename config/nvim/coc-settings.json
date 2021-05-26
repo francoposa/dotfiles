@@ -1,0 +1,13 @@
+{
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "disableWorkspaceFolders": true,
+            "filetypes": ["go"]
+        }
+    },
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintEnabled": true
+}
