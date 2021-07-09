@@ -166,10 +166,6 @@ Plug 'JamshedVesuna/vim-markdown-preview'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-"Plug 'vim-syntastic/syntastic'
-
-"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-
 Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
