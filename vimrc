@@ -168,5 +168,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'neovim/nvim-lspconfig'
+
 " Initialize plugin system
 call plug#end()
