@@ -40,15 +40,16 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
+-- setup and configure language servers
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
+nvim_lsp.pyright.setup({
+  root_dir = function(fname)
+    return nvim_lsp.util.root_pattern(".git")(fname) or
+      nvim_lsp.util.path.dirname(fname)
+  end,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
   }
-end
+})
 EOF
