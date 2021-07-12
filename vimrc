@@ -16,6 +16,7 @@ let g:netrw_liststyle=3
 
 " NERDTree
 let g:NERDTreeWinSize=40
+let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$', '__pycache__$']
 
 " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
@@ -103,7 +104,6 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
-
 "
 " COC settings
 "
@@ -170,7 +170,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
-
 
 " https://vi.stackexchange.com/questions/13674/make-youcompleteme-open-definition-in-vertical-split-even-if-buffer-is-not-saved
 map <leader>d <Plug>(coc-definition)
@@ -239,6 +238,9 @@ call plug#begin('~/.vim/vim-plug')
 
 Plug 'preservim/nerdtree'
 
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
 Plug 'inkarkat/vim-ReplaceWithRegister'
 
 Plug 'morhetz/gruvbox'
@@ -262,8 +264,6 @@ Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'rust-lang/rust.vim'
-
-Plug 'neovim/nvim-lspconfig'
 
 " Initialize plugin system
 call plug#end()
