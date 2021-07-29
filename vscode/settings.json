@@ -10,7 +10,7 @@
     // Appearance - Overall
     // Font & Text
     "editor.renderWhitespace": "all",
-    "editor.fontSize": 15,
+    "editor.fontSize": 14,
     // Add your preferred font (mine is Hack) to the front of default font list
     "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
     // Theme
@@ -28,6 +28,10 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 750,
     "editor.formatOnSave": true,
-    "go.inferGopath": true,
+    // Language-Specific Code Editing Settings
     "go.useLanguageServer": true,
+    "go.inferGopath": true,
+    "[html]": {
+        "editor.formatOnSave": false, // messes with go html templates
+    },
 }
