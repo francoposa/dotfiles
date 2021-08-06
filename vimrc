@@ -1,5 +1,6 @@
 "nnoremap <SPACE> <Nop>
 let mapleader = ","
+map # ^
 
 "
 " file & directory navigation
@@ -105,9 +106,10 @@ noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
 
-" Symbol renaming.
-nmap <leader>rr <Plug>(coc-rename)
-
+"
+" fzf
+"
+let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 "
 " Vim-Markdown
@@ -166,7 +168,7 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'neovim/nvim-lspconfig'
 
-"Plug 'neovim/nvim-lspconfig'
+Plug 'ojroques/nvim-lspfuzzy'
 
 Plug 'preservim/nerdcommenter'
 
