@@ -162,6 +162,10 @@ Plug 'morhetz/gruvbox'
 
 Plug 'tomasiser/vim-code-dark'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'lewis6991/spellsitter.nvim'
+
 Plug 'Raimondi/delimitMate'
 
 Plug 'airblade/vim-gitgutter'

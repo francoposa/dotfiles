@@ -4,6 +4,28 @@ source ~/.vimrc
 
 let g:python3_host_prog = '/usr/local/bin/python3'
 
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "python" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = {}, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+
+lua <<EOF
+require('spellsitter').setup()
+EOF
+
+
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
