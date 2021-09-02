@@ -42,6 +42,13 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
+# Set global editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# HOMEBREW place installed tools at beginning of PATH
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
 # RIPGREP
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
