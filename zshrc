@@ -17,6 +17,10 @@ bindkey "\e[1;3C" forward-word # ⌥→
 # https://stackoverflow.com/questions/444951/zsh-stop-backward-kill-word-on-directory-delimiter
 WORDCHARS=
 
+# https://github.com/kovidgoyal/kitty/issues/713
+alias ssh="kitty +kitten ssh"
+
+
 # ZSH AUTOCOMPLETE
 autoload -Uz compinit && compinit -u
 
