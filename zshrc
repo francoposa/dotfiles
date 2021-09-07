@@ -20,7 +20,6 @@ WORDCHARS=
 # https://github.com/kovidgoyal/kitty/issues/713
 alias ssh="kitty +kitten ssh"
 
-
 # ZSH AUTOCOMPLETE
 autoload -Uz compinit && compinit -u
 
