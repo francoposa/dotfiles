@@ -17,11 +17,11 @@ bindkey "\e[1;3C" forward-word # ⌥→
 # https://stackoverflow.com/questions/444951/zsh-stop-backward-kill-word-on-directory-delimiter
 WORDCHARS=
 
-# https://github.com/kovidgoyal/kitty/issues/713
-alias ssh="kitty +kitten ssh"
-
 # ZSH AUTOCOMPLETE
 autoload -Uz compinit && compinit -u
+
+# https://github.com/kovidgoyal/kitty/issues/713
+alias ssh="kitty +kitten ssh"
 
 # NVIM ALIAS
 alias nv=nvim
@@ -51,14 +51,15 @@ export EDITOR="$VISUAL"
 
 # HOMEBREW place installed tools at beginning of PATH
 export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/git/bin:$PATH"
 
 # RIPGREP
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # NVM & NPM - commented out when not in use as this initialization step is slow on my poor little Macbook Air
 # export NVM_DIR="$HOME/.nvm"
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+ [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+ [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
