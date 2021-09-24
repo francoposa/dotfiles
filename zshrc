@@ -1,10 +1,10 @@
 # Show current directory in command prompt, truncating where it can
 # https://stackoverflow.com/questions/25090295/how-to-you-configure-the-command-prompt-in-linux-to-show-current-directory
 #export PS1="[%~]%% "
-#export PS1="[%20<...<%~%<<] "
+export PS1="[%32<...<%~%<<] "
 # https://unix.stackexchange.com/questions/273529/shorten-path-in-zsh-prompt
 #export PS1="[%(5~|…/%3~|%~)]%% "
-export PS1="[%(5~|%-1~/…/%3~|%4~)]%% "
+#export PS1="[%(5~|%-1~/…/%3~|%4~)]%% "
 
 # Enable Option-Arrow Word jumping
 # iterm
@@ -65,7 +65,7 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-export PYENV_VERSION=3.9.4
+export PYENV_VERSION=3.9.7
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   # eval "$(pyenv virtualenv-init -)" # PYENV-VIRTUALENV - not using currently, in favor of pyenv-virtualenvwrapper
@@ -78,8 +78,8 @@ pyenv virtualenvwrapper
 # export WORKON_HOME=$HOME/.virtualenvs
 
 # POETRY
-# This gets put in ~/.profile by the installer, but moved it here
-export PATH=$PATH:$HOME/.poetry/bin
+# From new install-poetry installer installer instructions
+export PATH="/Users/franco/.local/bin:$PATH"
 
 # RUST-CARGO
 # This gets put in ~/.profile by the installer, but moved it here
