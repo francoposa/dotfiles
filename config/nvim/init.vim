@@ -6,7 +6,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "python" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = { 'go', 'python' }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
@@ -65,10 +65,13 @@ local on_attach = function(client, bufnr)
 
 end
 
--- setup and configure language servers
--- map buffer local keybindings when the language server attaches
 require('lspfuzzy').setup {}
-nvim_lsp.pyright.setup({
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'gopls', 'pyright' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup({
   root_dir = function(fname)
     return nvim_lsp.util.root_pattern(".git")(fname) or
       nvim_lsp.util.path.dirname(fname)
@@ -78,4 +81,5 @@ nvim_lsp.pyright.setup({
     debounce_text_changes = 150,
   }
 })
+end
 EOF
