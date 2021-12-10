@@ -49,6 +49,17 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+case "$OSTYPE" in
+   linux*)
+      alias start="xdg-open"
+      alias open="xdg-open"
+      ;;
+   darwin*)
+      alias start="open"
+      ;;
+esac
+
+
 # HOMEBREW place installed tools at beginning of PATH
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="/usr/local/opt/git/bin:$PATH"
@@ -57,7 +68,7 @@ export PATH="/usr/local/opt/git/bin:$PATH"
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # NVM & NPM - commented out when not in use as this initialization step is slow on my poor little Macbook Air
-# export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.nvm"
  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
@@ -65,7 +76,7 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-export PYENV_VERSION=3.9.7
+export PYENV_VERSION=3.8.12
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   # eval "$(pyenv virtualenv-init -)" # PYENV-VIRTUALENV - not using currently, in favor of pyenv-virtualenvwrapper
