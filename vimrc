@@ -50,7 +50,14 @@ set completeopt=menuone
 filetype plugin indent on
 
 " copy and paste
-set clipboard=unnamed " https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
+" https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
+set clipboard=unnamed
+set clipboard=unnamedplus
+" https://vi.stackexchange.com/questions/24792/how-to-automatically-perform-a-command-after-yanking-text-vim-wayland-clipboard
+augroup wayland_clipboard
+  au!
+  au TextYankPost * call system("wl-copy", @")
+augroup END
 
 "
 " syntax and view stuff
