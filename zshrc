@@ -8,11 +8,22 @@ export PS1="[%32<...<%~%<<] "
 
 # Enable Option-Arrow Word jumping
 # iterm
-bindkey "\e\e[D" backward-word # ⌥←
-bindkey "\e\e[C" forward-word # ⌥→
-# kitty
-bindkey "\e[1;3D" backward-word # ⌥←
-bindkey "\e[1;3C" forward-word # ⌥→
+#bindkey "\e\e[D" backward-word # ⌥←
+#bindkey "\e\e[C" forward-word # ⌥→
+## kitty
+#bindkey "\e[1;3D" backward-word # ⌥←
+#bindkey "\e[1;3C" forward-word # ⌥→
+
+case "$OSTYPE" in
+   linux*)
+      bindkey "\e[1;5D" backward-word # ⌥←
+      bindkey "\e[1;5C" forward-word # ⌥→
+      ;;
+   darwin*)
+      bindkey "\e[1;3D" backward-word # ⌥←
+      bindkey "\e[1;3C" forward-word # ⌥→
+      ;;
+esac
 
 # https://stackoverflow.com/questions/444951/zsh-stop-backward-kill-word-on-directory-delimiter
 WORDCHARS=
@@ -20,13 +31,8 @@ WORDCHARS=
 # ZSH AUTOCOMPLETE
 autoload -Uz compinit && compinit -u
 
-# https://github.com/kovidgoyal/kitty/issues/713
-alias ssh="kitty +kitten ssh"
-
-# NVIM ALIAS
-alias nv=nvim
-
 # ZSH HISTORY
+alias h="history 1"
 # https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -44,6 +50,12 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+
+# https://github.com/kovidgoyal/kitty/issues/713
+alias ssh="kitty +kitten ssh"
+
+# NVIM ALIAS
+alias nv=nvim
 
 # Set global editor
 export VISUAL=nvim
@@ -69,8 +81,8 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # NVM & NPM - commented out when not in use as this initialization step is slow on my poor little Macbook Air
 export NVM_DIR="$HOME/.nvm"
- [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
- [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
@@ -95,6 +107,9 @@ export PATH="/Users/franco/.local/bin:$PATH"
 # RUST-CARGO
 # This gets put in ~/.profile by the installer, but moved it here
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# GOLANG
+export PATH=$PATH:/usr/local/go/bin
 
 # This is the default, but prefer explicit over implicit
 export GOPATH=$HOME/go
