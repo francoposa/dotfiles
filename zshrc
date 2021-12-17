@@ -1,7 +1,7 @@
 # Show current directory in command prompt, truncating where it can
 # https://stackoverflow.com/questions/25090295/how-to-you-configure-the-command-prompt-in-linux-to-show-current-directory
 #export PS1="[%~]%% "
-export PS1="[%32<...<%~%<<] "
+export PS1="[%32<...<%~%<<] %% "
 # https://unix.stackexchange.com/questions/273529/shorten-path-in-zsh-prompt
 #export PS1="[%(5~|…/%3~|%~)]%% "
 #export PS1="[%(5~|%-1~/…/%3~|%4~)]%% "
@@ -33,6 +33,8 @@ autoload -Uz compinit && compinit -u
 
 # ZSH HISTORY
 alias h="history 1"
+alias hrg="history 1 | rg"
+
 # https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
