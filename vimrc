@@ -51,15 +51,8 @@ filetype plugin indent on
 
 " copy and paste
 " https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
-" https://stackoverflow.com/questions/9166328/how-to-copy-selected-lines-to-clipboard-in-vim
 " https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
-if has('clipboard')
-    if has('unnamedplus')  " When possible use + register for copy-paste
-        set clipboard=unnamed,unnamedplus
-    else         " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
-    endif
-endif
+set clipboard=unnamed,unnamedplus
 " https://vi.stackexchange.com/questions/24792/how-to-automatically-perform-a-command-after-yanking-text-vim-wayland-clipboard
 augroup wayland_clipboard
   au!
