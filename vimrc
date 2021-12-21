@@ -51,8 +51,15 @@ filetype plugin indent on
 
 " copy and paste
 " https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
-set clipboard=unnamed
-set clipboard=unnamedplus
+" https://stackoverflow.com/questions/9166328/how-to-copy-selected-lines-to-clipboard-in-vim
+" https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
+if has('clipboard')
+    if has('unnamedplus')  " When possible use + register for copy-paste
+        set clipboard=unnamed,unnamedplus
+    else         " On mac and Windows, use * register for copy-paste
+        set clipboard=unnamed
+    endif
+endif
 " https://vi.stackexchange.com/questions/24792/how-to-automatically-perform-a-command-after-yanking-text-vim-wayland-clipboard
 augroup wayland_clipboard
   au!
@@ -161,9 +168,6 @@ call plug#begin('~/.vim/vim-plug')
 
 Plug 'preservim/nerdtree'
 
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-
 Plug 'inkarkat/vim-ReplaceWithRegister'
 
 Plug 'morhetz/gruvbox'
@@ -173,6 +177,9 @@ Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'preservim/nerdcommenter'
+
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 Plug 'sheerun/vim-polyglot'
 

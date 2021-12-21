@@ -56,6 +56,17 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # https://github.com/kovidgoyal/kitty/issues/713
 alias ssh="kitty +kitten ssh"
 
+
+# VIM/VIMX ALIAS
+# on Fedora, you need package vim-x11 to get clipboard support
+case "$OSTYPE" in
+   linux*)
+      alias vim="vimx"
+      ;;
+esac
+
+
+
 # NVIM ALIAS
 alias nv=nvim
 
