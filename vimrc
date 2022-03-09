@@ -50,14 +50,11 @@ set completeopt=menuone
 filetype plugin indent on
 
 " copy and paste
-" https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
-" https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
-set clipboard=unnamed,unnamedplus
-" https://vi.stackexchange.com/questions/24792/how-to-automatically-perform-a-command-after-yanking-text-vim-wayland-clipboard
-augroup wayland_clipboard
-  au!
-  au TextYankPost * call system("wl-copy", @")
-augroup END
+" from nvim :help clipboard:
+" To ALWAYS use the clipboard for ALL operations (instead of interacting with
+" the '+' and/or '*' registers explicitly):
+"    set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 
 "
 " syntax and view stuff
