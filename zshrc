@@ -56,7 +56,6 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # https://github.com/kovidgoyal/kitty/issues/713
 alias ssh="kitty +kitten ssh"
 
-
 # VIM/VIMX ALIAS
 # on Fedora, you need package vim-x11 to get clipboard support
 case "$OSTYPE" in
@@ -65,15 +64,25 @@ case "$OSTYPE" in
       ;;
 esac
 
-
-
 # NVIM ALIAS
 alias nv=nvim
 
-# Set global editor
+# GLOBAL EDITOR
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+# COPY COMMAND ALIAS
+case "$OSTYPE" in
+   linux*)
+      alias copy="wl-copy"
+      ;;
+   darwin*)
+      alias copy="pbcopy"
+      ;;
+esac
+
+
+# OPEN COMMAND ALIAS
 case "$OSTYPE" in
    linux*)
       alias start="xdg-open"
