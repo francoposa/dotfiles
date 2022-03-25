@@ -149,6 +149,6 @@ export PATH=$PATH:$GOPATH/bin
 export SDKMAN_DIR="/Users/franco/.sdkman"
 [[ -s "/Users/franco/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/franco/.sdkman/bin/sdkman-init.sh"
 
-neofetch
+macchina --theme Beryllium
 
 echo $PATH
