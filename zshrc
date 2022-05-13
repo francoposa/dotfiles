@@ -127,7 +127,14 @@ pyenv virtualenvwrapper
 
 # POETRY
 # From new install-poetry installer installer instructions
-export PATH="/Users/franco/.local/bin:$PATH"
+case "$OSTYPE" in
+   linux*)
+      export PATH="/home/franco/.local/bin:$PATH"
+      ;;
+   darwin*)
+      export PATH="/Users/franco/.local/bin:$PATH"
+      ;;
+esac
 
 # RUST-CARGO
 # This gets put in ~/.profile by the installer, but moved it here
