@@ -80,13 +80,6 @@ case "$OSTYPE" in
       alias start="open"
       ;;
 esac
-# VIM/VIMX ALIAS
-# on Fedora, you need package vim-x11 to get clipboard support
-case "$OSTYPE" in
-   linux*)
-      alias vim="vimx"
-      ;;
-esac
 
 # NVIM ALIAS
 alias nv=nvim
