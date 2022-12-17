@@ -156,6 +156,12 @@ export PATH=$PATH:$GOPATH/bin
 export SDKMAN_DIR="/Users/franco/.sdkman"
 [[ -s "/Users/franco/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/franco/.sdkman/bin/sdkman-init.sh"
 
-macchina --theme Beryllium
 
 echo $PATH
+
+echo
+
+export PF_INFO="title os host kernel uptime memory shell editor palette"
+export PF_COL3=2
+
+pfetch
