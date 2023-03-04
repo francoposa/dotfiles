@@ -53,6 +53,9 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
+# PYTHON3 ALIAS
+alias python="python3"
+
 # https://github.com/kovidgoyal/kitty/issues/713
 alias ssh="kitty +kitten ssh"
 
@@ -106,7 +109,7 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-export PYENV_VERSION=3.8.12
+export PYENV_VERSION=3.10.8
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   # eval "$(pyenv virtualenv-init -)" # PYENV-VIRTUALENV - not using currently, in favor of pyenv-virtualenvwrapper
