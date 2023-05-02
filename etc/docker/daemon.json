@@ -1,0 +1,13 @@
+{
+    "default-ulimits": {
+        "nofile": {
+            "Name": "nofile",
+            "Hard": 64000,
+            "Soft": 64000
+        }
+    },
+
+    "features": {
+        "buildkit": true
+    }
+}
