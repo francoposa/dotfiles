@@ -1,0 +1,9 @@
+[user]
+	name = francoposa
+	email = franco@francoposa.io
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
