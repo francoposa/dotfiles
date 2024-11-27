@@ -42,7 +42,7 @@ SAVEHIST=10000000
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY             # Share history between all sessions.
+#setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
 setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
@@ -52,6 +52,31 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+
+
+# EMIT CURRENT WORKING DIRECTORY USING OSC 7 TERMINAL ESCAPE CODE STANDARD CREATED BY ITERM2
+# Required for WezTerm to set its tab names or do anything using the CWD
+# https://iterm2.com/documentation-escape-codes.html
+# https://github.com/wez/wezterm/discussions/3718
+# https://wezfurlong.org/wezterm/config/lua/config/default_cwd.html
+# https://github.com/wez/wezterm/discussions/4945
+_urlencode() {
+	local length="${#1}"
+	for (( i = 0; i < length; i++ )); do
+		local c="${1:$i:1}"
+		case $c in
+			%) printf '%%%02X' "'$c" ;;
+			*) printf "%s" "$c" ;;
+		esac
+	done
+}
+osc7_cwd() {
+	printf '\033]7;file://%s%s\e\\' "$HOSTNAME" "$(_urlencode "$PWD")"
+}
+# EMIT THE CWD VIA OSC 7 ESCAPE CODE EVERY TIME ZSH DETECTS A CHANGE IN DIRECTORY
+autoload -Uz add-zsh-hook
+add-zsh-hook -Uz chpwd osc7_cwd
+
 
 # PYTHON3 ALIAS
 alias python="python3"
@@ -109,7 +134,7 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-export PYENV_VERSION=3.10.8
+export PYENV_VERSION=3.12.4
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   # eval "$(pyenv virtualenv-init -)" # PYENV-VIRTUALENV - not using currently, in favor of pyenv-virtualenvwrapper
@@ -137,7 +162,7 @@ esac
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # GOLANG
-export PATH=$PATH:/usr/local/go/bin
+export PATH="/usr/local/go/bin:$PATH"
 
 # This is the default, but prefer explicit over implicit
 export GOPATH=$HOME/go
@@ -159,5 +184,8 @@ echo
 
 export PF_INFO="title os host kernel uptime memory shell editor palette"
 export PF_COL3=2
+
+# EMIT THE CWD VIA OSC 7 ESCAPE CODE WHEN NEW SHELL IS STARTING SO WEZTERM CAN DETECT
+osc7_cwd
 
 pfetch
