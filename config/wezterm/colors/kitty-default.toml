@@ -1,0 +1,37 @@
+[metadata]
+name = "Kitty Default"
+
+[colors]
+background = "#000000"
+foreground = "#dddddd"
+
+cursor_bg = "#cccccc"
+cursor_fg = "#111111"
+cursor_border = "#cccccc"
+
+selection_bg = "#fffacd"
+selection_fg = "#000000"
+
+ansi = [
+    "#000000",  # color0
+    "#cc0403",  # color1
+    "#19cb00",  # color2
+    "#cecb00",  # color3
+    "#0d73cc",  # color4
+    "#cb1ed1",  # color5
+    "#0dcdcd",  # color6
+    "#dddddd",  # color7
+]
+
+brights = [
+    "#767676",  # color8
+    "#f2201f",  # color9
+    "#23fd00",  # color10
+    "#fffd00",  # color11
+    "#1a8fff",  # color12
+    "#fd28ff",  # color13
+    "#14ffff",  # color14
+    "#ffffff",  # color15
+]
+
+
