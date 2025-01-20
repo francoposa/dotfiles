@@ -82,7 +82,7 @@ add-zsh-hook -Uz chpwd osc7_cwd
 alias python="python3"
 
 # https://github.com/kovidgoyal/kitty/issues/713
-alias ssh="kitty +kitten ssh"
+#alias ssh="kitty +kitten ssh"
 
 # LS COMMAND ALIASES
 alias ll="ls -alh"
@@ -112,23 +112,26 @@ esac
 # NVIM ALIAS
 alias nv=nvim
 
+# GIT ALIASES
+# SWITCH BETWEEN SSH AND HTTPS UPSTREAMS
+alias git-https="git remote set-url origin https://github.com/$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+alias git-ssh="  git remote set-url origin git@github.com:$(    git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+
 # GLOBAL EDITOR
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-
-
 # HOMEBREW place installed tools at beginning of PATH
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export PATH="/usr/local/opt/git/bin:$PATH"
+#export PATH="/usr/local/opt/curl/bin:$PATH"
+#export PATH="/usr/local/opt/git/bin:$PATH"
 
 # RIPGREP
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # NVM & NPM - commented out when not in use as this initialization step is slow on my poor little Macbook Air
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
@@ -174,8 +177,8 @@ export PATH=$PATH:$GOPATH/bin
 # Seems to work fine even if it is not at the end of .zshrc, I assume it just doesn't want the PATH
 # getting pre-empted by something else that would put another SDK ahead of the sdkman ones
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/franco/.sdkman"
-[[ -s "/Users/franco/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/franco/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="/Users/franco/.sdkman"
+#[[ -s "/Users/franco/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/franco/.sdkman/bin/sdkman-init.sh"
 
 
 echo $PATH
