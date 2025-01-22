@@ -112,10 +112,20 @@ esac
 # NVIM ALIAS
 alias nv=nvim
 
-# GIT ALIASES
+# GIT ALIASES / FUNCTIONS
+# Removed aliases because they evaluate the $() bits when the alias is set
+# and they fail when the zshrc shell is started outside a git boundary
 # SWITCH BETWEEN SSH AND HTTPS UPSTREAMS
-alias git-https="git remote set-url origin https://github.com/$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
-alias git-ssh="  git remote set-url origin git@github.com:$(    git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+#alias git-https="git remote set-url origin https://github.com/$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+git-https() {
+  git remote set-url origin "https://github.com/$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+}
+#alias git-ssh="  git remote set-url origin git@github.com:$(    git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+git-ssh() {
+   git remote set-url origin "git@github.com:$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+}
+
+
 
 # GLOBAL EDITOR
 export VISUAL=nvim
