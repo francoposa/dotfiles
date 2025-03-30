@@ -55,7 +55,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 
 # EMIT CURRENT WORKING DIRECTORY USING OSC 7 TERMINAL ESCAPE CODE STANDARD CREATED BY ITERM2
-# Required for WezTerm to set its tab names or do anything using the CWD
+# Required for WezTerm to set its tab names or do anything using the CWD.
 # https://iterm2.com/documentation-escape-codes.html
 # https://github.com/wez/wezterm/discussions/3718
 # https://wezfurlong.org/wezterm/config/lua/config/default_cwd.html
@@ -82,6 +82,7 @@ add-zsh-hook -Uz chpwd osc7_cwd
 alias python="python3"
 
 # https://github.com/kovidgoyal/kitty/issues/713
+# Not in use anymore; prefer Ghostty or fallback to WezTerm.
 #alias ssh="kitty +kitten ssh"
 
 # LS COMMAND ALIASES
@@ -126,69 +127,65 @@ git-ssh() {
 }
 
 
-
 # GLOBAL EDITOR
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# HOMEBREW place installed tools at beginning of PATH
-#export PATH="/usr/local/opt/curl/bin:$PATH"
-#export PATH="/usr/local/opt/git/bin:$PATH"
+# HOMEBREW place installed tools at beginning of PATH.
+case "$OSTYPE" in
+    darwin*)
+        export PATH="/usr/local/opt/curl/bin:$PATH"
+        export PATH="/usr/local/opt/curl/bin:$PATH"
+    ;;
+esac
+
+# PATH add ~/.local/bim.
+# Required for pyenv-virtualenvwrapper, poetry, and other tooling.
+# Also just good practice to be putting tools here instead of system paths.
+export PATH="$HOME/.local/bin:$PATH"
 
 # RIPGREP
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-# NVM & NPM - commented out when not in use as this initialization step is slow on my poor little Macbook Air
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# NVM & NPM - commented out when not in use as this initialization step is slow.
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-export PYENV_VERSION=3.12.4
+export PYENV_VERSION=3.13.2
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  # eval "$(pyenv virtualenv-init -)" # PYENV-VIRTUALENV - not using currently, in favor of pyenv-virtualenvwrapper
+  # eval "$(pyenv virtualenv-init -)" # PYENV-VIRTUALENV - not in use, in favor of pyenv-virtualenvwrapper
 fi  # adds ~/.pyenv/shims to the beginning of PATH
 
-# # PYENV-VIRTUALENVWRAPPER
-# # Initalize virtualenvwrapper so commands are available
+# PYENV-VIRTUALENVWRAPPER
+# Initalize virtualenvwrapper so commands are available.
 pyenv virtualenvwrapper
-# # This is the default, but prefer explicit over implicit
-# export WORKON_HOME=$HOME/.virtualenvs
-
-# POETRY
-# From new install-poetry installer installer instructions
-case "$OSTYPE" in
-   linux*)
-      export PATH="/home/franco/.local/bin:$PATH"
-      ;;
-   darwin*)
-      export PATH="/Users/franco/.local/bin:$PATH"
-      ;;
-esac
+# This is the default, but prefer explicit over implicit.
+export WORKON_HOME=$HOME/.virtualenvs
 
 # RUST-CARGO
-# This gets put in ~/.profile by the installer, but moved it here
+# This gets put in ~/.profile by the installer, but moved it here.
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # GOLANG
 export PATH="/usr/local/go/bin:$PATH"
 
-# This is the default, but prefer explicit over implicit
+# This is the default, but prefer explicit over implicit.
 export GOPATH=$HOME/go
 
-# Make your binary executables available anywhere on the machine 
+# Make your binary executables available anywhere on the machine.
 export PATH=$PATH:$GOPATH/bin
 
-# Added automatically by sdkman
+# Added automatically by sdkman.
 # Seems to work fine even if it is not at the end of .zshrc, I assume it just doesn't want the PATH
-# getting pre-empted by something else that would put another SDK ahead of the sdkman ones
+# getting pre-empted by something else that would put another SDK ahead of the sdkman ones.
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="/Users/franco/.sdkman"
-#[[ -s "/Users/franco/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/franco/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/Users/franco/.sdkman"
+[[ -s "/Users/franco/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/franco/.sdkman/bin/sdkman-init.sh"
 
 
 echo $PATH
@@ -201,4 +198,5 @@ export PF_COL3=2
 # EMIT THE CWD VIA OSC 7 ESCAPE CODE WHEN NEW SHELL IS STARTING SO WEZTERM CAN DETECT
 osc7_cwd
 
+# PFETCH assuming pfetch is cloned somewhere in the PATH.
 pfetch
