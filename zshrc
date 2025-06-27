@@ -187,6 +187,9 @@ export PATH=$PATH:$GOPATH/bin
 export SDKMAN_DIR="/Users/franco/.sdkman"
 [[ -s "/Users/franco/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/franco/.sdkman/bin/sdkman-init.sh"
 
+# ZOLA
+# Flatpak alias
+alias zola="flatpak run org.getzola.zola"
 
 echo $PATH
 
