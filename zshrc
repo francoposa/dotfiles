@@ -101,13 +101,13 @@ esac
 
 # OPEN COMMAND ALIAS
 case "$OSTYPE" in
-   linux*)
-      alias start="xdg-open"
-      alias open="xdg-open"
-      ;;
-   darwin*)
-      alias start="open"
-      ;;
+    linux*)
+        alias start="xdg-open"
+        alias open="xdg-open"
+        ;;
+    darwin*)
+        alias start="open"
+        ;;
 esac
 
 # NVIM ALIAS
@@ -117,13 +117,14 @@ alias nv=nvim
 # Removed aliases because they evaluate the $() bits when the alias is set
 # and they fail when the zshrc shell is started outside a git boundary
 # SWITCH BETWEEN SSH AND HTTPS UPSTREAMS
+# https://stackoverflow.com/questions/30683399/how-to-change-a-connection-to-github-from-ssh-to-https
 #alias git-https="git remote set-url origin https://github.com/$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
-git-https() {
-  git remote set-url origin "https://github.com/$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+git-http() {
+    git remote set-url origin $(git remote get-url origin | sed 's/^git@\(.*\):\/*\(.*\).git/https:\/\/\1\/\2.git/')
 }
 #alias git-ssh="  git remote set-url origin git@github.com:$(    git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
 git-ssh() {
-   git remote set-url origin "git@github.com:$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+    git remote set-url origin $(git remote get-url origin | sed 's/^https:\/\/\([^\/]*\)\/\(.*\).git/git@\1\:\2.git/')
 }
 
 
@@ -187,6 +188,13 @@ export PATH=$PATH:$GOPATH/bin
 export SDKMAN_DIR="/Users/franco/.sdkman"
 [[ -s "/Users/franco/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/franco/.sdkman/bin/sdkman-init.sh"
 
+# OPENTOFU/TERRAFORM
+# OpenTofu alias
+alias tf=tofu
+
+# ZOLA
+# Flatpak alias
+alias zola="flatpak run org.getzola.zola"
 
 echo $PATH
 
