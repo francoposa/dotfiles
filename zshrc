@@ -150,13 +150,12 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # NVM & NPM - commented out when not in use as this initialization step is slow.
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_VERSION=3.13.2
+export PYENV_VERSION=3.13.8
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   # eval "$(pyenv virtualenv-init -)" # PYENV-VIRTUALENV - not in use, in favor of pyenv-virtualenvwrapper
