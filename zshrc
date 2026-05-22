@@ -118,13 +118,13 @@ alias nv=nvim
 # and they fail when the zshrc shell is started outside a git boundary
 # SWITCH BETWEEN SSH AND HTTPS UPSTREAMS
 # https://stackoverflow.com/questions/30683399/how-to-change-a-connection-to-github-from-ssh-to-https
-#alias git-https="git remote set-url origin https://github.com/$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
+# Note that switching to https will be overridden by an `insteadOf` rule in git config like:
+# url."git@github.com:grafana".insteadOf = "https://github.com/grafana"
 git-http() {
-    git remote set-url origin $(git remote get-url origin | sed 's/^git@\(.*\):\/*\(.*\).git/https:\/\/\1\/\2.git/')
+    git remote set-url origin $(git remote get-url origin | sed 's/^git@\([^:]*\):\(.*\)/https:\/\/\1\/\2/')
 }
-#alias git-ssh="  git remote set-url origin git@github.com:$(    git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')"
 git-ssh() {
-    git remote set-url origin $(git remote get-url origin | sed 's/^https:\/\/\([^\/]*\)\/\(.*\).git/git@\1\:\2.git/')
+    git remote set-url origin $(git remote get-url origin | sed 's/^https:\/\/\([^\/]*\)\/\(.*\)/git@\1:\2/')
 }
 
 
