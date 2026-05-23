@@ -148,9 +148,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # RIPGREP
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-# NVM & NPM - commented out when not in use as this initialization step is slow.
+# NVM & NPM - commented out bash completion as this initialization step is slow.
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
@@ -166,6 +167,9 @@ fi  # adds ~/.pyenv/shims to the beginning of PATH
 pyenv virtualenvwrapper
 # This is the default, but prefer explicit over implicit.
 export WORKON_HOME=$HOME/.virtualenvs
+
+# RUBY RBENV
+eval "$(~/.rbenv/bin/rbenv init -)"
 
 # RUST-CARGO
 # This gets put in ~/.profile by the installer, but moved it here.
