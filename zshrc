@@ -140,7 +140,7 @@ case "$OSTYPE" in
     ;;
 esac
 
-# PATH add ~/.local/bim.
+# PATH add ~/.local/bin.
 # Required for pyenv-virtualenvwrapper, poetry, and other tooling.
 # Also just good practice to be putting tools here instead of system paths.
 export PATH="$HOME/.local/bin:$PATH"
@@ -148,10 +148,18 @@ export PATH="$HOME/.local/bin:$PATH"
 # RIPGREP
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-# NVM & NPM - commented out bash completion as this initialization step is slow.
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion
+# NVM & NPM - commented out in favor of PNPM.
+# NPM is banned at work for being the most exploitable software ever.
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion; really slow
+
+# PNPM
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
