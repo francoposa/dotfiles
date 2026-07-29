@@ -77,6 +77,11 @@ osc7_cwd() {
 autoload -Uz add-zsh-hook
 add-zsh-hook -Uz chpwd osc7_cwd
 
+# DETACH ANY COMMAND
+# $@: Any valid command
+_() {
+    (nohup "$@" &>/dev/null &)
+}
 
 # PYTHON3 ALIAS
 alias python="python3"
