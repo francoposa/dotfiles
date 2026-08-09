@@ -194,8 +194,10 @@ export PATH="/usr/local/go/bin:$PATH"
 # This is the default, but prefer explicit over implicit.
 export GOPATH=$HOME/go
 
-# Make your binary executables available anywhere on the machine.
-export PATH=$PATH:$GOPATH/bin
+# Move go-installed tools and binary executables to front of PATH;
+# this is easiest to keep local tool versions in sync with dev repos
+# vs. fighting against the package manager versions or manual installs.
+export PATH="$GOPATH/bin:$PATH"
 
 # Added automatically by sdkman.
 # Seems to work fine even if it is not at the end of .zshrc, I assume it just doesn't want the PATH
