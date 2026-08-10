@@ -82,6 +82,13 @@ add-zsh-hook -Uz chpwd osc7_cwd
 _() {
     (nohup "$@" &>/dev/null &)
 }
+# AUTOCOMPLETE AFTER `_` DETACH PREFIX.
+# Auto-complete everything after `_`.
+# The _precommand control function is used by zsh for commands which take other commands;
+# it shifts forward to apply completion to the second word in the line.
+# This must be declared after `compinit`.
+# https://zsh.sourceforge.io/Doc/Release/Completion-System.html
+compdef _precommand _
 
 # PYTHON3 ALIAS
 alias python="python3"
@@ -213,6 +220,10 @@ alias tf=tofu
 # ZOLA
 # Flatpak alias
 alias zola="flatpak run org.getzola.zola"
+
+# JETBRAINS
+# IDE launcher scripts
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts/"
 
 echo $PATH
 
