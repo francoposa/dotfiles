@@ -98,7 +98,8 @@ alias python="python3"
 #alias ssh="kitty +kitten ssh"
 
 # LS COMMAND ALIASES
-alias ll="ls -alh"
+alias ll="ls -lh"
+alias lla="ls -alh"
 
 # COPY COMMAND ALIAS
 case "$OSTYPE" in
